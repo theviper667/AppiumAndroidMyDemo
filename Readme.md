@@ -1,9 +1,7 @@
 # AppiumAndroidMyDemo
-Project to demonstrate functional testing with Appium in Java, TestNG, Allure Reports and Maven on the MyDemo Android app.
+Project to demonstrate functional testing with Appium in Java, TestNG, Selenide, Allure Reports and Maven on the MyDemo Android app.
 
 This project primarily uses a Page Object Model design pattern.
-
-The project also demonstrates basic data driving but with a single data set to preserve brevity of smoke testing.
 
 ## Prerequisites
 
@@ -19,7 +17,7 @@ The project also demonstrates basic data driving but with a single data set to p
 1. Follow the steps here https://developer.android.com/studio/run/managing-avds to create an AVD through Android Studio  
 OR  
 Open CMD and execute `avdmanager create avd --name MyAVDName --package "system-images;android-29;google_apis;x86"` replacing the name with
-your own choice of name and Android system image (Android 10 is highly recommended for stability and compatibility)
+your own choice of name and Android system image (Android 10/API 29 is strongly recommended for stability and compatibility)
 2. Open `src/main/resources/config.properties`
 3. Replace `DEVICE_NAME` with the device name created above
 4. Replace `DEVICE_NAME_AVD` with the same name (to confirm AVD name navigate to `$ANDROID_HOME/emulator` and run `./emulator -list-avds`
