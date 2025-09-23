@@ -50,7 +50,7 @@ public class LoginPage extends BasePage{
     }
 
     public void useLoginAutofill() {
-        click(getTestLoginAutoFill().swipeTo());
-        click(getLoginButton().swipeTo());
+        click(getTestLoginAutoFill().scrollTo());
+        click(getLoginButton().scrollTo());
     }
 }

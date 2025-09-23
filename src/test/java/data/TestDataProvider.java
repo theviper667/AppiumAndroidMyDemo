@@ -1,6 +1,10 @@
 package data;
 
+import models.Product;
+import utils.JSONDataUtil;
 import org.testng.annotations.DataProvider;
+
+import java.util.List;
 
 public class TestDataProvider {
     @DataProvider(name = "validLoginData")
@@ -32,5 +36,19 @@ public class TestDataProvider {
                         .withErrorMessage("Sorry, this user has been locked out.")
                         .build()}
         };
+    }
+
+    @DataProvider(name = "productData")
+    public Object [][] productData() {
+        List<Product> products = JSONDataUtil.getProductCatalog();
+
+        if (products.isEmpty()) {
+            return new Object[0][0];
+        }
+        Object[][] data = new Object[products.size()][1];
+        for (int i = 0; i < products.size(); i++) {
+            data[i][0] = products.get(i);
+        }
+        return data;
     }
 }

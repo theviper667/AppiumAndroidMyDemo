@@ -17,7 +17,7 @@ public class LoginTest extends BaseTest{
     public void verifyValidLogin(LoginData loginData) {
         navigationMenu.openLogInPage()
                 .enterValidLogin(loginData.getUsername(), loginData.getPassword());
-        Assert.assertTrue(inventoryPage.isProductScreenVisible());
+        Assert.assertTrue(inventoryPage.isProductScreenVisible(), "Product catalog page was not opened");
     }
 
     @Test
@@ -34,6 +34,7 @@ public class LoginTest extends BaseTest{
     public void verifyInvalidCredentialsError(LoginData invalidLoginData) {
         navigationMenu.openLogInPage()
                 .enterInvalidLogin(invalidLoginData.getUsername(), invalidLoginData.getPassword());
-        Assert.assertTrue(loginPage.isLoginErrorVisible(invalidLoginData.getErrormessage()));
+        Assert.assertTrue(loginPage.isLoginErrorVisible(invalidLoginData.getErrormessage()), "Error message: "
+        +invalidLoginData.getErrormessage()+ "was not shown");
     }
 }

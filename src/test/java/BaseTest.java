@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeSuite;
 import pages.InventoryPage;
 import pages.LoginPage;
 import pages.NavigationMenu;
+import pages.ProductPage;
 
 import static core.AppiumDriverProvider.*;
 
@@ -13,11 +14,13 @@ public class BaseTest {
     protected InventoryPage inventoryPage;
     protected NavigationMenu navigationMenu;
     protected LoginPage loginPage;
+    protected ProductPage productPage;
 
     public BaseTest () {
         inventoryPage = new InventoryPage();
         navigationMenu = new NavigationMenu();
         loginPage = new LoginPage();
+        productPage = new ProductPage();
     }
 
     @BeforeSuite(alwaysRun = true)

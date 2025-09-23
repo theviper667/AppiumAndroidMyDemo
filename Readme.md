@@ -28,3 +28,14 @@ your own choice of name and Android system image (Android 10/API 29 is strongly 
 ## Execute Test Suite
 
 ## Scenarios Tested
+LoginTest
+1. A user with valid credentials logs in successfully
+2. A user that has logged in can logout successfully and is alerted to it
+3. A locked out user cannot login and is alerted to their status
+4. Attempting to login with a username but without a password shows the correct error
+5. Attempting to login with a password but without a username shows the correct error
+6. Attempting to login with unauthorized credentials shows the correct error
+
+CatalogTest
+1. Verify details of each product on the catalog and product pages
+2. Full checkout flow for each product

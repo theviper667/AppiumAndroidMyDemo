@@ -38,6 +38,10 @@ public class NavigationMenu extends BasePage{
         return $(By.xpath("//android.view.ViewGroup[@content-desc=\"menu item catalog\"]"));
     }
 
+    public static SelenideAppiumElement getBurgerMenuContainer() {
+        return $(By.xpath("//android.view.ViewGroup[@content-desc=\"menu item reset app\"]/../.."));
+    }
+
     public LoginPage openLogInPage () {
         click(getBurgerMenuButton());
         click(getBurgerMenuLogInItem());
@@ -58,5 +62,12 @@ public class NavigationMenu extends BasePage{
     public LoginPage clickPopUpOKButton() {
         click(getPopupOKButton());
         return new LoginPage();
+    }
+
+    public InventoryPage returnToCatalog() {
+        click(getBurgerMenuButton());
+        getBurgerMenuContainer().scrollTo();
+        click(getBurgerMenuCatalogItem());
+        return new InventoryPage();
     }
 }
