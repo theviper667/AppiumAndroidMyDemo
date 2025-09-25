@@ -27,7 +27,7 @@ your own choice of name and Android system image (Android 10/API 29 is strongly 
 
 
 ## Execute Test Suite
-Run smoke test suite and generate allure report via `mvn clean test allure:serve` (This will open the report automatically after execution)
+Run test suite and generate allure report via `mvn clean test allure:serve` (This will open the report automatically after execution)
 
 ## Scenarios Tested
 LoginTest
