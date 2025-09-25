@@ -1,7 +1,8 @@
 # AppiumAndroidMyDemo
 Project to demonstrate functional testing with Appium in Java, TestNG, Selenide, Allure Reports and Maven on the MyDemo Android app.
 
-This project primarily uses a Page Object Model design pattern.
+This project primarily uses a Page Object Model design pattern. It tries to demonstrate multiple ways of using locators for similar attributes
+and to showcase data driving.
 
 ## Prerequisites
 
@@ -37,5 +38,7 @@ LoginTest
 6. Attempting to login with unauthorized credentials shows the correct error
 
 CatalogTest
-1. Verify details of each product on the catalog and product pages
+1. Verify details of each product on the catalog and product pages (Demonstrates data driving from file)
 2. Full checkout flow for each product
+
+Note: Not an exhaustive list of tests needed for this app

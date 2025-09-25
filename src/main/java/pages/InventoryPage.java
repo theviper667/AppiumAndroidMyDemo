@@ -39,6 +39,6 @@ public class InventoryPage extends BasePage{
     }
 
     public String getProductPriceText(String itemName) {
-        return getTextFromElement(getProductPrice(itemName).scrollTo());
+        return getTextFromElement(getProductPrice(itemName));
     }
 }

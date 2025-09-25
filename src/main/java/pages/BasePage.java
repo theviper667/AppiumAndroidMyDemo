@@ -1,9 +1,11 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.appium.SelenideAppiumElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+import java.math.BigDecimal;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -11,21 +13,21 @@ import static core.AppiumDriverProvider.driver;
 
 public class BasePage {
 
-    protected void click(SelenideAppiumElement element) {
-        element.shouldBe((visible), Duration.ofSeconds(15)).click();
+    protected void click(SelenideElement element) {
+        element.scrollTo().shouldBe((visible), Duration.ofSeconds(15)).click();
     }
 
-    protected void type(SelenideAppiumElement element, String text) {
-        element.shouldBe(visible).clear();
+    protected void type(SelenideElement element, String text) {
+        element.scrollTo().shouldBe(visible).clear();
         element.sendKeys(text);
     }
 
-    protected void waitForElement(SelenideAppiumElement element) {
-        element.shouldBe(visible, Duration.ofSeconds(15));
+    protected void waitForElement(SelenideElement element) {
+        element.scrollTo().shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    protected boolean isElementVisible(SelenideAppiumElement element) {
-        return element.is(visible, Duration.ofSeconds(15));
+    protected boolean isElementVisible(SelenideElement element) {
+        return element.scrollTo().is(visible, Duration.ofSeconds(15));
     }
 
     protected String getTextFromParentContainers(SelenideAppiumElement element) {
@@ -34,8 +36,15 @@ public class BasePage {
                 .getText();
     }
 
+    protected BigDecimal extractCurrencyValue(SelenideElement element) {
+        String convert =  element.shouldBe(visible, Duration.ofSeconds(15))
+                .getText()
+                .replaceAll("[^\\d.]", "");
+        return new BigDecimal(convert);
+    }
+
     protected String getTextFromElement(SelenideAppiumElement element) {
-        return element.shouldBe(visible, Duration.ofSeconds(15)).getText();
+        return element.scrollTo().shouldBe(visible, Duration.ofSeconds(15)).getText();
     }
 
     public NavigationMenu getNavigationMenu() {

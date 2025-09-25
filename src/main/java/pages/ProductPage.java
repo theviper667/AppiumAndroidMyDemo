@@ -22,8 +22,24 @@ public class ProductPage extends BasePage{
         return $(byContentDescription("product description"));
     }
 
+    private SelenideAppiumElement getCartBadge() {
+        return $(byContentDescription("cart badge"));
+    }
+
+    private SelenideAppiumElement getAddToCartCounter() {
+        return $(byContentDescription("counter amount"));
+    }
+
     public String getProductPriceText() {
         return getTextFromElement(getProductPrice().scrollTo());
+    }
+
+    public String getCartItemsCount() {
+        return getTextFromParentContainers(getCartBadge());
+    }
+
+    public String getAddToCartCount() {
+        return getTextFromParentContainers(getAddToCartCounter());
     }
 
     public String getProductTitleText() {
@@ -34,5 +50,14 @@ public class ProductPage extends BasePage{
 
     public String getProductDescriptionText() {
         return getTextFromElement(getProductDescription().scrollTo());
+    }
+
+    public void clickAddToCartButton() {
+        click(getAddToCartButton().scrollTo());
+    }
+
+    public CartPage clickCartBadge() {
+        click(getCartBadge());
+        return new CartPage();
     }
 }
