@@ -1,5 +1,5 @@
 import data.TestDataProvider;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import models.CheckoutFlowData;
 import models.Product;
 import org.testng.Assert;

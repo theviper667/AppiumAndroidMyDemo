@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.appium.SelenideAppiumElement;
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import java.math.BigDecimal;
@@ -14,11 +13,11 @@ import static core.AppiumDriverProvider.driver;
 public class BasePage {
 
     protected void click(SelenideElement element) {
-        element.scrollTo().shouldBe((visible), Duration.ofSeconds(15)).click();
+        element.shouldBe((visible), Duration.ofSeconds(15)).click();
     }
 
     protected void type(SelenideElement element, String text) {
-        element.scrollTo().shouldBe(visible).clear();
+        element.shouldBe(visible).clear();
         element.sendKeys(text);
     }
 
@@ -53,9 +52,5 @@ public class BasePage {
 
     public void pressBackButton() {
         driver.navigate().back();
-    }
-
-    @Step("{0}")
-    public void announceStep(String message){
     }
 }
